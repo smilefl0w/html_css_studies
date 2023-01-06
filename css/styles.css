@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+/**/
+
+* {
+    /*Sets something for ALL elements like it imports all elements from a python file*/
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+ul {
+    /*makes sure there are no bulletpoints in a list*/
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+/* margin value1(top/bot) valuee(left/right) */
+h1, h2 {
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 10px 0;  
+}
+
+p {
+    margin: 10px 0;     
+}
+
+img {
+    width:100%;
+}
+
+.navbar {
+    background-color:#047aed;
+    color:#fff;
+    height: 70px;
+}
+
+/**/
+/*for ul in navbar display flex : everything becomes
+horizontally aligned*/
+.navbar ul {
+    display:flex;
+}
+
+.navbar a {
+    color:#fff;
+    padding: 10px;
+    margin:0 5px;
+}
+
+.navbar a:hover {
+    border-bottom: 2px #fff solid;
+}
+
+/*Even though we specify justify-content in .flex we can override it if its in the navbar
+as space-between else its center (see .flex)*/
+.navbar .flex {
+    justify-content: space-between;
+}
+
+.container {
+    /*margin: 0 (sets it in the middle) */    
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: auto;
+    padding:0 40px;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height 100% makes something always take up 100% of its container*/
+    height: 100%;
+}
