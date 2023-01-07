@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
-/**/
+/*GENERAL -------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*root things can be reused everywhere
+so you dont have to retype the color code all the time*/
+:root {
+    --primary-color: #047aed;
+    --secondary-color: #1c3fa8;
+    --dark-color: #002240;
+    --light-color: #f4f4f4;
+}
 
 * {
     /*Sets something for ALL elements like it imports all elements from a python file*/
@@ -41,8 +49,10 @@ img {
     width:100%;
 }
 
+/*NAVBAR ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 .navbar {
-    background-color:#047aed;
+    background-color:var(--primary-color);
     color:#fff;
     height: 70px;
 }
@@ -70,18 +80,198 @@ as space-between else its center (see .flex)*/
     justify-content: space-between;
 }
 
-.container {
-    /*margin: 0 (sets it in the middle) */    
-    max-width: 1100px;
-    margin: 0 auto;
-    overflow: auto;
-    padding:0 40px;
+
+/*SECTIONS ------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/*SHOWCASE SECTION-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+.showcase {
+    height: 400px;
+    background-color: var(--primary-color);
+    color: #fff;
+    /*If you want to position an element 'absolute' you can*/
+    position: relative;
 }
 
-.flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /*height 100% makes something always take up 100% of its container*/
-    height: 100%;
+.showcase h1 {
+    font-size: 40px;
+}
+
+.showcase p {
+    max-width: 20px 0;
+}
+
+.showcase .grid {
+    /*left item and right item in the grid-container thats IN showcase*/
+    grid-template-columns: 55% 45%;
+    gap: 30px;
+    overflow: visible;
+}
+
+/**/
+.showcase-form {
+    /**/
+    position:relative;
+    top: 60px;
+    height:350px;
+    width: 400px;
+    padding:40px;
+    z-index: 100;
+    justify-self: flex-end;
+}
+
+.showcase-form .form-control {
+    margin: 30px 0;
+}
+
+.showcase-form input[type="text"],
+.showcase-form input[type="email"] {
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    width: 100%;
+    padding: 3px;
+    font-size: 16px;
+}
+
+.showcase-form input:focus {
+    outline: none;
+}
+
+.showcase::before, .showcase::after {
+    /* THE WEIRD DIAGONAL LINE IS AN OVERLAPPING BLOCK!!!
+    This works because the showcase has a position relative
+    its like its own object put over the showcase*/
+    content:"";
+    position:absolute;
+    height: 100px;
+    bottom: -70px;
+    right: 0;
+    left: 0;
+    background: white;
+    transform: skewY(-3deg);
+    -webkit-transform: skewY(-3deg);
+    -moz-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
+}
+
+/**/
+/*STATS SECTION--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.stats {
+    padding-top: 100px;
+}
+
+.stats-heading {
+    max-width: 500px;
+    margin: auto;
+}
+
+.stats .grid h3 {
+    font-size: 35px;
+}
+
+.stats .grid p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*CLI SECTION----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.cli .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    
+}
+
+/* >(for) *(everything) :(that is) first-child in the grid-container of cli*/
+.cli .grid > *:first-child{
+    grid-column: 1/ span 2;
+    grid-row: 1 / span 2;
+}
+
+/*CLOUD SECTION--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.cloud .grid {
+    grid-template-columns: 4fr 3fr;
+}
+
+/*LANGUAGES SECTION----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.languages .flex {
+    flex-wrap: wrap;
+}
+
+.languages .card {
+    text-align: center;
+    margin: 18px 10px 40px;
+    /*specefies how the hover effect should be displayed*/
+    transition: transform 0.2s ease-in;
+}
+
+.languages .card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.languages .card:hover {
+    transform: translateY(-15px);
+}
+
+
+/*FOOTER SECTION-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.footer .social a {
+    margin: 0 10px;
+}
+
+
+/*MEDIA QUERIES--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Tablets and under*/
+@media (max-width: 768px) {
+    .grid,
+    .showcase .grid,
+    .stats .grid,
+    .cli .grid,
+    .cloud .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .showcase {
+        /*Makes sure that things dont overlap*/
+        height:auto;  
+    }
+
+    .showcase-text {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .showcase-form {
+        justify-self: center;
+        margin: auto;
+    }
+
+    .cli .grid > *:first-child{
+        grid-column: 1;
+        grid-row: 1;
+    }
+}
+
+
+/*Mobile*/  
+@media (max-width: 500px) {
+    .navbar {
+        height:100px;
+    }
+
+    .navbar .flex {
+        flex-direction: column;
+    }
+
+    .navbar ul {
+        padding: 7px;
+        background-color: rgba(0,0,0,0.1); 
+    }
+
 }
