@@ -82,8 +82,9 @@ that can be reused on everything*/
 .bg-light, 
 .btn-light {
     background-color: var(--light-color);
-    color: #fff;
+    color: black;
 }
+
 
 .bg-primary a, 
 .btn-primary a,
@@ -99,6 +100,29 @@ that can be reused on everything*/
 
 .text-center {
     text-align: center;
+}
+
+
+/*Alerts*/
+
+.alert {
+    background-color: var(--light-color);
+    padding: 10px 20px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.alert i {
+    margin-right: 10px;
+}
+
+.alert-success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.alert-error {
+    background-color: var(--error-color);
 }
 
 /*Text sizes*/
@@ -204,25 +228,25 @@ that can be reused on everything*/
 
 .p-1 {
     /*rem multiplier of the root-elements font-size*/
-    padding: 1rem 0;
+    padding: 1rem;
 }
 
 .p-2 {
     /*rem multiplier of the root-elements font-size*/
-    padding: 1.5rem 0;
+    padding: 1.5rem;
 }
 
 .p-3 {
     /*rem multiplier of the root-elements font-size*/
-    padding: 2rem 0;
+    padding: 2rem;
 }
 
 .p-4 {
     /*rem multiplier of the root-elements font-size*/
-    padding: 3rem 0;
+    padding: 3rem;
 }
 
 .p-5 {
     /*rem multiplier of the root-elements font-size*/
-    padding: 4rem 0;
+    padding: 4rem;
 }
