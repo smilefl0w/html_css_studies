@@ -82,7 +82,7 @@ that can be reused on everything*/
 .bg-light, 
 .btn-light {
     background-color: var(--light-color);
-    color: black;
+    color: #333;
 }
 
 
